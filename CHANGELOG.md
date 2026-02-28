@@ -10,14 +10,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Breaking Changes
 
 ### Added
-- Added the "Usage in Editor Code" section to README.
-- Added `TryGet` methods for `SceneReference` properties:
+- `Usage in Editor Code` README section.
+- `TryGet` methods for `SceneReference` properties that can throw exceptions:
   - `TryGetPath` for `Path`.
   - `TryGetBuildIndex` for `BuildIndex`.
   - `TryGetName` for `Name`.
   - `TryGetLoadedScene` for `LoadedScene`.
   - `TryGetAddress` for `Address`.
-- GUID-based equality for `SceneReference`.
+- GUID-based value equality for `SceneReference`: Two `SceneReference`s are now ruled equal if they reference the same GUID.
 
 ### Changed
 
