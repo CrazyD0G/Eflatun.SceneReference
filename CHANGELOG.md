@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - `TryGetName` for `Name`.
   - `TryGetLoadedScene` for `LoadedScene`.
   - `TryGetAddress` for `Address`.
+- GUID-based equality for `SceneReference`.
 
 ### Changed
 
