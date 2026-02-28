@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 
 ### Breaking Changes
+- `SceneReference` now implements GUID-based value equality. Two `SceneReference`s are now ruled equal if and only if they reference the same GUID.
 
 ### Added
 - `Usage in Editor Code` README section.
@@ -17,7 +18,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - `TryGetName` for `Name`.
   - `TryGetLoadedScene` for `LoadedScene`.
   - `TryGetAddress` for `Address`.
-- GUID-based value equality for `SceneReference`: Two `SceneReference`s are now ruled equal if they reference the same GUID.
 
 ### Changed
 
