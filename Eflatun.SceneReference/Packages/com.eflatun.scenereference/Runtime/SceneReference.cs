@@ -40,8 +40,9 @@ namespace Eflatun.SceneReference
         /// <remarks>This constructor never throws.</remarks>
         public SceneReference()
         {
-            // This parameterless constructor is required for the custom XML serialization support.
-            // See: https://learn.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable?view=net-7.0#remarks
+            /* This parameterless constructor is required for the System.Xml serialization support.
+             * See: https://learn.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable?view=net-7.0#remarks
+             */
 
             guid = Utils.AllZeroGuid;
             asset = null;
@@ -522,7 +523,7 @@ namespace Eflatun.SceneReference
         }
 
         /// <summary>
-        /// Used by <see cref="ISerializable"/> for custom JSON and Binary serialization support.
+        /// Used by <see cref="ISerializable"/> for Newtonsoft.Json and BinaryFormatter serialization support.
         /// </summary>
         /// <remarks>
         /// https://www.newtonsoft.com/json/help/html/serializationguide.htm#ISerializable
@@ -570,7 +571,7 @@ namespace Eflatun.SceneReference
         }
 
         /// <summary>
-        /// Used by <see cref="IXmlSerializable"/> for custom XML serialization support.
+        /// Used by <see cref="IXmlSerializable"/> for System.Xml serialization support.
         /// </summary>
         protected virtual XmlSchema GetSchema()
         {
@@ -584,7 +585,7 @@ namespace Eflatun.SceneReference
         }
 
         /// <summary>
-        /// Used by <see cref="IXmlSerializable"/> for custom XML serialization support.
+        /// Used by <see cref="IXmlSerializable"/> for System.Xml serialization support.
         /// </summary>
         protected virtual void ReadXml(XmlReader reader)
         {
@@ -599,7 +600,7 @@ namespace Eflatun.SceneReference
         }
 
         /// <summary>
-        /// Used by <see cref="IXmlSerializable"/> for custom XML serialization support.
+        /// Used by <see cref="IXmlSerializable"/> for System.Xml serialization support.
         /// </summary>
         protected virtual void WriteXml(XmlWriter writer)
         {

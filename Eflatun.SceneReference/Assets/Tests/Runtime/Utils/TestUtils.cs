@@ -23,81 +23,48 @@ namespace Eflatun.SceneReference.Tests.Runtime.Utils
         public const string EnabledScenePath = "Assets/Tests/Runtime/Subjects/TestSubject_Enabled.unity";
         public static int EnabledSceneBuildIndex => SceneUtility.GetBuildIndexByScenePath(EnabledScenePath);
         public const string EnabledSceneGuid = "e3f2c1473b766c34ba5b37779d71787e";
-        public static string EnabledSceneJsonRaw => GetRawJson(EnabledSceneGuid);
-        public static string EnabledSceneXmlRaw => GetRawXml(EnabledSceneGuid);
-        public static string EnabledSceneBinaryBase64 => GetRawBinaryBase64(EnabledSceneGuid);
 
         public const string DisabledSceneName = "TestSubject_Disabled";
         public const string DisabledScenePath = "Assets/Tests/Runtime/Subjects/TestSubject_Disabled.unity";
         public static int DisabledSceneBuildIndex => SceneUtility.GetBuildIndexByScenePath(DisabledScenePath);
         public const string DisabledSceneGuid = "7e37b14fa3517514a91937cec5cad27a";
-        public static string DisabledSceneJsonRaw => GetRawJson(DisabledSceneGuid);
-        public static string DisabledSceneXmlRaw => GetRawXml(DisabledSceneGuid);
-        public static string DisabledSceneBinaryBase64 => GetRawBinaryBase64(DisabledSceneGuid);
 
         public const string NotInBuildSceneName = "TestSubject_NotInBuild";
         public const string NotInBuildScenePath = "Assets/Tests/Runtime/Subjects/TestSubject_NotInBuild.unity";
         public static int NotInBuildSceneBuildIndex => SceneUtility.GetBuildIndexByScenePath(NotInBuildScenePath);
         public const string NotInBuildSceneGuid = "63c386231869c904c9b701dd79268476";
-        public static string NotInBuildSceneJsonRaw => GetRawJson(NotInBuildSceneGuid);
-        public static string NotInBuildSceneXmlRaw => GetRawXml(NotInBuildSceneGuid);
-        public static string NotInBuildSceneBinaryBase64 => GetRawBinaryBase64(NotInBuildSceneGuid);
 
         public const string AllZeroGuid = "00000000000000000000000000000000";
-        public static string EmptyReferenceJsonRaw => GetRawJson(AllZeroGuid);
-        public static string EmptyReferenceXmlRaw => GetRawXml(AllZeroGuid);
-        public static string EmptyReferenceBinaryBase64 => GetRawBinaryBase64(AllZeroGuid);
 
         public const string DeletedSceneGuid = "69c1683d94db0cc469d86e4e865f9f5d";
-        public static string DeletedSceneJsonRaw => GetRawJson(DeletedSceneGuid);
-        public static string DeletedSceneXmlRaw => GetRawXml(DeletedSceneGuid);
-        public static string DeletedSceneBinaryBase64 => GetRawBinaryBase64(DeletedSceneGuid);
 
         public const string NotExistingGuid = "2bc1683d94d80cc269d85e4e8a5fcf5d";
-        public static string NotExistingJsonRaw => GetRawJson(NotExistingGuid);
-        public static string NotExistingXmlRaw => GetRawXml(NotExistingGuid);
-        public static string NotExistingBinaryBase64 => GetRawBinaryBase64(NotExistingGuid);
 
         public const string NotSceneAssetGuid = "99d2aa5f58f54c44fba8671b66be5259";
         public const string NotSceneAssetPath = "Assets/Tests/Runtime/Utils/TestSubject_Material.mat";
-        public static string NotSceneAssetJsonRaw => GetRawJson(NotSceneAssetGuid);
-        public static string NotSceneAssetXmlRaw => GetRawXml(NotSceneAssetGuid);
-        public static string NotSceneAssetBinaryBase64 => GetRawBinaryBase64(NotSceneAssetGuid);
 
         public const string Addressable1SceneName = "TestSubject_Addressable1";
         public const string Addressable1ScenePath = "Assets/Tests/Runtime/Subjects/TestSubject_Addressable1.unity";
         public static int Addressable1SceneBuildIndex => SceneUtility.GetBuildIndexByScenePath(Addressable1ScenePath);
         public const string Addressable1SceneGuid = "8b3f523138018e04ebcb86e1230451b1";
-        public static string Addressable1SceneJsonRaw => GetRawJson(Addressable1SceneGuid);
-        public static string Addressable1SceneXmlRaw => GetRawXml(Addressable1SceneGuid);
-        public static string Addressable1SceneBinaryBase64 => GetRawBinaryBase64(Addressable1SceneGuid);
         public const string Addressable1SceneAddress = "Test Subject Addressable1";
 
         public const string Addressable2SceneName = "TestSubject_Addressable2";
         public const string Addressable2ScenePath = "Assets/Tests/Runtime/Subjects/TestSubject_Addressable2.unity";
         public static int Addressable2SceneBuildIndex => SceneUtility.GetBuildIndexByScenePath(Addressable2ScenePath);
         public const string Addressable2SceneGuid = "32b8f3692a793ae4693d74167b0f093f";
-        public static string Addressable2SceneJsonRaw => GetRawJson(Addressable2SceneGuid);
-        public static string Addressable2SceneXmlRaw => GetRawXml(Addressable2SceneGuid);
-        public static string Addressable2SceneBinaryBase64 => GetRawBinaryBase64(Addressable2SceneGuid);
         public const string Addressable2SceneAddress = "Test Subject Addressable2";
 
         public const string AddressableDuplicateAddressASceneName = "TestSubject_AddressableDuplicateAddressA";
         public const string AddressableDuplicateAddressAScenePath = "Assets/Tests/Runtime/Subjects/TestSubject_AddressableDuplicateAddressA.unity";
         public static int AddressableDuplicateAddressASceneBuildIndex => SceneUtility.GetBuildIndexByScenePath(AddressableDuplicateAddressAScenePath);
         public const string AddressableDuplicateAddressASceneGuid = "97f5e006e871a7440b0ffe04cb128c15";
-        public static string AddressableDuplicateAddressASceneJsonRaw => GetRawJson(AddressableDuplicateAddressASceneGuid);
-        public static string AddressableDuplicateAddressASceneXmlRaw => GetRawXml(AddressableDuplicateAddressASceneGuid);
-        public static string AddressableDuplicateAddressASceneBinaryBase64 => GetRawBinaryBase64(AddressableDuplicateAddressASceneGuid);
         public const string AddressableDuplicateAddressASceneAddress = "Test Subject AddressableDuplicateAddress";
 
         public const string AddressableDuplicateAddressBSceneName = "TestSubject_AddressableDuplicateAddressB";
         public const string AddressableDuplicateAddressBScenePath = "Assets/Tests/Runtime/Subjects/TestSubject_AddressableDuplicateAddressB.unity";
         public static int AddressableDuplicateAddressBSceneBuildIndex => SceneUtility.GetBuildIndexByScenePath(AddressableDuplicateAddressBScenePath);
         public const string AddressableDuplicateAddressBSceneGuid = "c367bc2503743ea4b8abccc44b2fefbc";
-        public static string AddressableDuplicateAddressBSceneJsonRaw => GetRawJson(AddressableDuplicateAddressBSceneGuid);
-        public static string AddressableDuplicateAddressBSceneXmlRaw => GetRawXml(AddressableDuplicateAddressBSceneGuid);
-        public static string AddressableDuplicateAddressBSceneBinaryBase64 => GetRawBinaryBase64(AddressableDuplicateAddressBSceneGuid);
         public const string AddressableDuplicateAddressBSceneAddress = "Test Subject AddressableDuplicateAddress";
 
         public const string NonExistingAddress = "This Address Should Never Exist ___ Foo ___ Bar";
@@ -403,35 +370,31 @@ namespace Eflatun.SceneReference.Tests.Runtime.Utils
             return Path.GetExtension(path) == ".unity";
         }
 
-        public static string SerializeToJson(SceneReference sr)
-        {
-            return JsonConvert.SerializeObject(sr, Newtonsoft.Json.Formatting.None);
-        }
+        public static string SerializeViaNewtonsoftJson(SceneReference sceneReference)
+            => JsonConvert.SerializeObject(sceneReference, Newtonsoft.Json.Formatting.None);
 
-        public static SceneReference DeserializeFromJson(string jsonRaw)
-        {
-            return JsonConvert.DeserializeObject<SceneReference>(jsonRaw);
-        }
+        public static SceneReference DeserializeViaNewtonsoftJson(string json)
+            => JsonConvert.DeserializeObject<SceneReference>(json);
 
-        public static string SerializeToBinaryBase64(SceneReference sr) =>
-            BinarySerializationUtils.SerializeToBinaryBase64(sr);
+        public static string SerializeToBase64ViaBinaryFormatter(SceneReference sceneReference) =>
+            BinaryFormatterUtils.SerializeToBase64ViaBinaryFormatter(sceneReference);
 
-        public static SceneReference DeserializeFromBinaryBase64(string binaryBase64) =>
-            BinarySerializationUtils.DeserializeFromBinaryBase64<SceneReference>(binaryBase64);
+        public static SceneReference DeserializeFromBase64ViaBinaryFormatter(string base64) =>
+            BinaryFormatterUtils.DeserializeFromBase64ViaBinaryFormatter<SceneReference>(base64);
 
-        public static string SerializeToXml(SceneReference sr)
+        public static string SerializeViaSystemXml(SceneReference sceneReference)
         {
             var xmlSerializer = new XmlSerializer(typeof(SceneReference));
             var sb = new StringBuilder();
             using var xmlWriter = XmlWriter.Create(sb);
-            xmlSerializer.Serialize(xmlWriter, sr);
+            xmlSerializer.Serialize(xmlWriter, sceneReference);
             return sb.ToString();
         }
 
-        public static SceneReference DeserializeFromXml(string xmlRaw)
+        public static SceneReference DeserializeViaSystemXml(string xml)
         {
             var xmlSerializer = new XmlSerializer(typeof(SceneReference));
-            using var stringReader = new StringReader(xmlRaw);
+            using var stringReader = new StringReader(xml);
             using var xmlReader = XmlReader.Create(stringReader);
             return xmlSerializer.Deserialize(xmlReader) as SceneReference;
         }
@@ -452,11 +415,13 @@ namespace Eflatun.SceneReference.Tests.Runtime.Utils
             }
         }
 
-        public static string GetRawJson(string guid) => @$"{{""{SceneReference.CustomSerializationGuidKey}"":""{guid}""}}";
+        public static string GetExpectedOutputOfNewtonsoftJson(string guid)
+            => @$"{{""{SceneReference.CustomSerializationGuidKey}"":""{guid}""}}";
 
-        public static string GetRawXml(string guid) => $@"<?xml version=""1.0"" encoding=""utf-16""?><{SceneReference.XmlRootElementName}>{guid}</{SceneReference.XmlRootElementName}>";
+        public static string GetExpectedOutputOfSystemXml(string guid)
+            => $@"<?xml version=""1.0"" encoding=""utf-16""?><{SceneReference.XmlRootElementName}>{guid}</{SceneReference.XmlRootElementName}>";
 
-        public static string GetRawBinaryBase64(string guid)
+        public static string GetAsBase64ExpectedOutputOfBinaryFormatter(string guid)
         {
             // BinaryFormatter output format reference: https://stackoverflow.com/a/30176566/6301627
 

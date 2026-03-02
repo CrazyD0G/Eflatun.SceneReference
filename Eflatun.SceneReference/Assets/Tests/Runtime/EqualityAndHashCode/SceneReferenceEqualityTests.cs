@@ -83,9 +83,9 @@ namespace Eflatun.SceneReference.Tests.Runtime.EqualityAndHashCode
             return conceptionType switch
             {
                 ConceptionType.CreatedInCode => new SceneReference(guid),
-                ConceptionType.DeserializedFromJson => TestUtils.DeserializeFromJson(TestUtils.GetRawJson(guid)),
-                ConceptionType.DeserializedFromXml => TestUtils.DeserializeFromXml(TestUtils.GetRawXml(guid)),
-                ConceptionType.DeserializedFromBinary => TestUtils.DeserializeFromBinaryBase64(TestUtils.GetRawBinaryBase64(guid)),
+                ConceptionType.DeserializedViaNewtonsoftJson => TestUtils.DeserializeViaNewtonsoftJson(TestUtils.GetExpectedOutputOfNewtonsoftJson(guid)),
+                ConceptionType.DeserializedViaSystemXml => TestUtils.DeserializeViaSystemXml(TestUtils.GetExpectedOutputOfSystemXml(guid)),
+                ConceptionType.DeserializedViaBinaryFormatter => TestUtils.DeserializeFromBase64ViaBinaryFormatter(TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(guid)),
                 ConceptionType.UnitySerialized => TestSubjectContainer.GetSceneReference(sceneType),
                 _ => throw new ArgumentOutOfRangeException(nameof(conceptionType), conceptionType, null),
             };
@@ -139,9 +139,9 @@ namespace Eflatun.SceneReference.Tests.Runtime.EqualityAndHashCode
             return conceptionType switch
             {
                 ConceptionType.CreatedInCode => new SceneReference(guid),
-                ConceptionType.DeserializedFromJson => TestUtils.DeserializeFromJson(TestUtils.GetRawJson(guid)),
-                ConceptionType.DeserializedFromXml => TestUtils.DeserializeFromXml(TestUtils.GetRawXml(guid)),
-                ConceptionType.DeserializedFromBinary => TestUtils.DeserializeFromBinaryBase64(TestUtils.GetRawBinaryBase64(guid)),
+                ConceptionType.DeserializedViaNewtonsoftJson => TestUtils.DeserializeViaNewtonsoftJson(TestUtils.GetExpectedOutputOfNewtonsoftJson(guid)),
+                ConceptionType.DeserializedViaSystemXml => TestUtils.DeserializeViaSystemXml(TestUtils.GetExpectedOutputOfSystemXml(guid)),
+                ConceptionType.DeserializedViaBinaryFormatter => TestUtils.DeserializeFromBase64ViaBinaryFormatter(TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(guid)),
                 ConceptionType.UnitySerialized => throw new Exception("This branch is already handled above with an if statement."),
                 _ => throw new ArgumentOutOfRangeException(nameof(conceptionType), conceptionType, null),
             };

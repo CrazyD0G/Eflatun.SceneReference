@@ -15,234 +15,267 @@ namespace Eflatun.SceneReference.Tests.Runtime
         public IEnumerator Setup() => TestSubjectContainer.CacheIfNotAlready();
 
         [Test]
-        public void SerializesToJson_EnabledScene()
+        public void SerializesViaNewtonsoftJson_EnabledScene()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.EnabledScene.Field);
-            Assert.AreEqual(TestUtils.EnabledSceneJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.EnabledSceneGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.EnabledScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_EnabledScene()
+        public void SerializesViaBinaryFormatter_EnabledScene()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.EnabledScene.Field);
-            Assert.AreEqual(TestUtils.EnabledSceneBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.EnabledSceneGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.EnabledScene.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_EnabledScene()
+        public void SerializesViaSystemXml_EnabledScene()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.EnabledScene.Field);
-            Assert.AreEqual(TestUtils.EnabledSceneXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.EnabledSceneGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.EnabledScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_DisabledScene()
+        public void SerializesViaNewtonsoftJson_DisabledScene()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.DisabledScene.Field);
-            Assert.AreEqual(TestUtils.DisabledSceneJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.DisabledSceneGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.DisabledScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_DisabledScene()
+        public void SerializesViaBinaryFormatter_DisabledScene()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.DisabledScene.Field);
-            Assert.AreEqual(TestUtils.DisabledSceneBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.DisabledSceneGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.DisabledScene.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_DisabledScene()
+        public void SerializesViaSystemXml_DisabledScene()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.DisabledScene.Field);
-            Assert.AreEqual(TestUtils.DisabledSceneXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.DisabledSceneGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.DisabledScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_NotInBuildScene()
+        public void SerializesViaNewtonsoftJson_NotInBuildScene()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.NotInBuildScene.Field);
-            Assert.AreEqual(TestUtils.NotInBuildSceneJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.NotInBuildSceneGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.NotInBuildScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_NotInBuildScene()
+        public void SerializesViaBinaryFormatter_NotInBuildScene()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.NotInBuildScene.Field);
-            Assert.AreEqual(TestUtils.NotInBuildSceneBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.NotInBuildSceneGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.NotInBuildScene.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_NotInBuildScene()
+        public void SerializesViaSystemXml_NotInBuildScene()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.NotInBuildScene.Field);
-            Assert.AreEqual(TestUtils.NotInBuildSceneXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.NotInBuildSceneGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.NotInBuildScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_Empty()
+        public void SerializesViaNewtonsoftJson_Empty()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.Empty.Field);
-            Assert.AreEqual(TestUtils.EmptyReferenceJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.AllZeroGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.Empty.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_Empty()
+        public void SerializesViaBinaryFormatter_Empty()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.Empty.Field);
-            Assert.AreEqual(TestUtils.EmptyReferenceBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.AllZeroGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.Empty.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_Empty()
+        public void SerializesViaSystemXml_Empty()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.Empty.Field);
-            Assert.AreEqual(TestUtils.EmptyReferenceXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.AllZeroGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.Empty.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_DeletedScene()
+        public void SerializesViaNewtonsoftJson_DeletedScene()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.DeletedScene.Field);
-            Assert.AreEqual(TestUtils.DeletedSceneJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.DeletedSceneGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.DeletedScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_DeletedScene()
+        public void SerializesViaBinaryFormatter_DeletedScene()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.DeletedScene.Field);
-            Assert.AreEqual(TestUtils.DeletedSceneBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.DeletedSceneGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.DeletedScene.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_DeletedScene()
+        public void SerializesViaSystemXml_DeletedScene()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.DeletedScene.Field);
-            Assert.AreEqual(TestUtils.DeletedSceneXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.DeletedSceneGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.DeletedScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_NotExisting()
+        public void SerializesViaNewtonsoftJson_NotExisting()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.NotExisting.Field);
-            Assert.AreEqual(TestUtils.NotExistingJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.NotExistingGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.NotExisting.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_NotExisting()
+        public void SerializesViaBinaryFormatter_NotExisting()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.NotExisting.Field);
-            Assert.AreEqual(TestUtils.NotExistingBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.NotExistingGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.NotExisting.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_NotExisting()
+        public void SerializesViaSystemXml_NotExisting()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.NotExisting.Field);
-            Assert.AreEqual(TestUtils.NotExistingXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.NotExistingGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.NotExisting.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_NotSceneAsset()
+        public void SerializesViaNewtonsoftJson_NotSceneAsset()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.NotSceneAsset.Field);
-            Assert.AreEqual(TestUtils.NotSceneAssetJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.NotSceneAssetGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.NotSceneAsset.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_NotSceneAsset()
+        public void SerializesViaBinaryFormatter_NotSceneAsset()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.NotSceneAsset.Field);
-            Assert.AreEqual(TestUtils.NotSceneAssetBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.NotSceneAssetGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.NotSceneAsset.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_NotSceneAsset()
+        public void SerializesViaSystemXml_NotSceneAsset()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.NotSceneAsset.Field);
-            Assert.AreEqual(TestUtils.NotSceneAssetXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.NotSceneAssetGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.NotSceneAsset.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_Addressable1Scene()
+        public void SerializesViaNewtonsoftJson_Addressable1Scene()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.Addressable1Scene.Field);
-            Assert.AreEqual(TestUtils.Addressable1SceneJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.Addressable1SceneGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.Addressable1Scene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_Addressable1Scene()
+        public void SerializesViaBinaryFormatter_Addressable1Scene()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.Addressable1Scene.Field);
-            Assert.AreEqual(TestUtils.Addressable1SceneBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.Addressable1SceneGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.Addressable1Scene.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_Addressable1Scene()
+        public void SerializesViaSystemXml_Addressable1Scene()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.Addressable1Scene.Field);
-            Assert.AreEqual(TestUtils.Addressable1SceneXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.Addressable1SceneGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.Addressable1Scene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_Addressable2Scene()
+        public void SerializesViaNewtonsoftJson_Addressable2Scene()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.Addressable2Scene.Field);
-            Assert.AreEqual(TestUtils.Addressable2SceneJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.Addressable2SceneGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.Addressable2Scene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_Addressable2Scene()
+        public void SerializesViaBinaryFormatter_Addressable2Scene()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.Addressable2Scene.Field);
-            Assert.AreEqual(TestUtils.Addressable2SceneBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.Addressable2SceneGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.Addressable2Scene.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_Addressable2Scene()
+        public void SerializesViaSystemXml_Addressable2Scene()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.Addressable2Scene.Field);
-            Assert.AreEqual(TestUtils.Addressable2SceneXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.Addressable2SceneGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.Addressable2Scene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_AddressableDuplicateAddressAScene()
+        public void SerializesViaNewtonsoftJson_AddressableDuplicateAddressAScene()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.AddressableDuplicateAddressAScene.Field);
-            Assert.AreEqual(TestUtils.AddressableDuplicateAddressASceneJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.AddressableDuplicateAddressASceneGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.AddressableDuplicateAddressAScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_AddressableDuplicateAddressAScene()
+        public void SerializesViaBinaryFormatter_AddressableDuplicateAddressAScene()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.AddressableDuplicateAddressAScene.Field);
-            Assert.AreEqual(TestUtils.AddressableDuplicateAddressASceneBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.AddressableDuplicateAddressASceneGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.AddressableDuplicateAddressAScene.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_AddressableDuplicateAddressAScene()
+        public void SerializesViaSystemXml_AddressableDuplicateAddressAScene()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.AddressableDuplicateAddressAScene.Field);
-            Assert.AreEqual(TestUtils.AddressableDuplicateAddressASceneXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.AddressableDuplicateAddressASceneGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.AddressableDuplicateAddressAScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToJson_AddressableDuplicateAddressBScene()
+        public void SerializesViaNewtonsoftJson_AddressableDuplicateAddressBScene()
         {
-            var jsonRaw = TestUtils.SerializeToJson(TestSubjectContainer.AddressableDuplicateAddressBScene.Field);
-            Assert.AreEqual(TestUtils.AddressableDuplicateAddressBSceneJsonRaw, jsonRaw);
+            var expected = TestUtils.GetExpectedOutputOfNewtonsoftJson(TestUtils.AddressableDuplicateAddressBSceneGuid);
+            var actual = TestUtils.SerializeViaNewtonsoftJson(TestSubjectContainer.AddressableDuplicateAddressBScene.Field);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SerializesToBinary_AddressableDuplicateAddressBScene()
+        public void SerializesViaBinaryFormatter_AddressableDuplicateAddressBScene()
         {
-            var binaryBase64 = TestUtils.SerializeToBinaryBase64(TestSubjectContainer.AddressableDuplicateAddressBScene.Field);
-            Assert.AreEqual(TestUtils.AddressableDuplicateAddressBSceneBinaryBase64, binaryBase64);
+            var expected = TestUtils.GetAsBase64ExpectedOutputOfBinaryFormatter(TestUtils.AddressableDuplicateAddressBSceneGuid);
+            var base64 = TestUtils.SerializeToBase64ViaBinaryFormatter(TestSubjectContainer.AddressableDuplicateAddressBScene.Field);
+            Assert.AreEqual(expected, base64);
         }
 
         [Test]
-        public void SerializesToXml_AddressableDuplicateAddressBScene()
+        public void SerializesViaSystemXml_AddressableDuplicateAddressBScene()
         {
-            var xmlRaw = TestUtils.SerializeToXml(TestSubjectContainer.AddressableDuplicateAddressBScene.Field);
-            Assert.AreEqual(TestUtils.AddressableDuplicateAddressBSceneXmlRaw, xmlRaw);
+            var expected = TestUtils.GetExpectedOutputOfSystemXml(TestUtils.AddressableDuplicateAddressBSceneGuid);
+            var actual = TestUtils.SerializeViaSystemXml(TestSubjectContainer.AddressableDuplicateAddressBScene.Field);
+            Assert.AreEqual(expected, actual);
         }
     }
 }
