@@ -8,15 +8,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 
 ### Breaking Changes
+- `SceneReference` now implements GUID-based value equality. Two `SceneReference`s are now ruled equal if and only if they reference the same GUID.
 
 ### Added
-- Added the "Usage in Editor Code" section to README.
+- `Usage in Editor Code` README section.
+- `TryGet` methods for `SceneReference` properties that can throw exceptions:
+  - `TryGetPath` for `Path`.
+  - `TryGetBuildIndex` for `BuildIndex`.
+  - `TryGetName` for `Name`.
+  - `TryGetLoadedScene` for `LoadedScene`.
+  - `TryGetAddress` for `Address`.
 
 ### Changed
 
 ### Removed
 
 ### Fixed
+- All GUIDs are now compared case-insensitively:
+  - Provider dictionaries are constructed with `StringComparer.OrdinalIgnoreCase`.
+  - Property drawer finds the current scene-in-build entry with `StringComparer.OrdinalIgnoreCase`.
+  - `Enable in Build` tool finds the scene-in-build entry with `StringComparer.OrdinalIgnoreCase`.
+  - Utility ignores in list mode now compare scene GUIDs with `StringComparer.OrdinalIgnoreCase`.
+
+### Optimised
+- Eliminated GC allocations in `IsValidGuid`.
 
 
 

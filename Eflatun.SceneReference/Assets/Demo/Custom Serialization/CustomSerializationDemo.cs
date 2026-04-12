@@ -15,14 +15,14 @@ namespace Eflatun.SceneReference.Demo.CustomSerialization
 
         private void Start()
         {
-            ToJsonAndBack();
-            ToBinaryAndBack();
-            ToXmlAndBack();
+            ViaNewtonsoftJson();
+            ViaBinaryFormatter();
+            ViaSystemXml();
         }
 
-        private void ToBinaryAndBack()
+        private void ViaBinaryFormatter()
         {
-            Debug.Log("--- Binary ---");
+            Debug.Log("--- BinaryFormatter ---");
             var bf = new BinaryFormatter();
             using var ms = new MemoryStream();
 
@@ -36,9 +36,9 @@ namespace Eflatun.SceneReference.Demo.CustomSerialization
             Debug.Log("Deserialized path: " + (deserialized.State != SceneReferenceState.Unsafe ? deserialized.Path : "<empty>"));
         }
 
-        private void ToJsonAndBack()
+        private void ViaNewtonsoftJson()
         {
-            Debug.Log("--- JSON ---");
+            Debug.Log("--- Newtonsoft.Json ---");
             var json = JsonConvert.SerializeObject(original);
             Debug.Log($"JSON serialization: {json}");
 
@@ -46,9 +46,9 @@ namespace Eflatun.SceneReference.Demo.CustomSerialization
             Debug.Log("Deserialized path: " + (deserialized.State != SceneReferenceState.Unsafe ? deserialized.Path : "<empty>"));
         }
 
-        private void ToXmlAndBack()
+        private void ViaSystemXml()
         {
-            Debug.Log("--- XML ---");
+            Debug.Log("--- System.Xml ---");
             var xmlSerializer = new XmlSerializer(typeof(SceneReference));
             var sb = new StringBuilder();
             using var xmlWriter = XmlWriter.Create(sb);

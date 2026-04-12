@@ -1,4 +1,5 @@
-﻿using Eflatun.SceneReference.Tests.Runtime.Utils;
+﻿using System;
+using Eflatun.SceneReference.Tests.Runtime.Utils;
 using Eflatun.SceneReference.Utility;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -53,9 +54,9 @@ namespace Eflatun.SceneReference.Tests.Runtime
         public void FillWith_Works()
         {
             // cleanup
-            var toRestore = SceneGuidToPathMapProvider.SceneGuidToPathMap.ToDictionary();
+            var toRestore = SceneGuidToPathMapProvider.SceneGuidToPathMap.ToDictionary(StringComparer.OrdinalIgnoreCase);
 
-            var expected = new Dictionary<string, string>()
+            var expected = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
                 {"foo", "a"},
                 {"bar", "b"},
@@ -66,6 +67,22 @@ namespace Eflatun.SceneReference.Tests.Runtime
 
             // cleanup
             SceneGuidToPathMapProvider.FillWith(toRestore);
+        }
+
+        [Test]
+        public void SceneGuidToPathMap_LookupIsCaseInsensitive()
+        {
+            var upperEnabled = TestUtils.EnabledSceneGuid.ToUpperInvariant();
+            Assert.IsTrue(SceneGuidToPathMapProvider.SceneGuidToPathMap.ContainsKey(upperEnabled));
+            Assert.AreEqual(TestUtils.EnabledScenePath, SceneGuidToPathMapProvider.SceneGuidToPathMap[upperEnabled]);
+
+            var upperDisabled = TestUtils.DisabledSceneGuid.ToUpperInvariant();
+            Assert.IsTrue(SceneGuidToPathMapProvider.SceneGuidToPathMap.ContainsKey(upperDisabled));
+            Assert.AreEqual(TestUtils.DisabledScenePath, SceneGuidToPathMapProvider.SceneGuidToPathMap[upperDisabled]);
+
+            var upperNotInBuild = TestUtils.NotInBuildSceneGuid.ToUpperInvariant();
+            Assert.IsTrue(SceneGuidToPathMapProvider.SceneGuidToPathMap.ContainsKey(upperNotInBuild));
+            Assert.AreEqual(TestUtils.NotInBuildScenePath, SceneGuidToPathMapProvider.SceneGuidToPathMap[upperNotInBuild]);
         }
 
         [Test]
