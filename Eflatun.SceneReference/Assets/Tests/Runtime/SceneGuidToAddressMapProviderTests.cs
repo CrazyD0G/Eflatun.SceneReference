@@ -1,4 +1,5 @@
-﻿using Eflatun.SceneReference.Exceptions;
+﻿using System;
+using Eflatun.SceneReference.Exceptions;
 using Eflatun.SceneReference.Tests.Runtime.Utils;
 using Eflatun.SceneReference.Utility;
 using NUnit.Framework;
@@ -12,9 +13,9 @@ namespace Eflatun.SceneReference.Tests.Runtime
         public void FillWith_Works()
         {
             // cleanup
-            var toRestore = SceneGuidToAddressMapProvider.SceneGuidToAddressMap.ToDictionary();
+            var toRestore = SceneGuidToAddressMapProvider.SceneGuidToAddressMap.ToDictionary(StringComparer.OrdinalIgnoreCase);
 
-            var expected = new Dictionary<string, string>()
+            var expected = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
                 {"foo", "a"},
                 {"bar", "b"},
@@ -37,6 +38,20 @@ namespace Eflatun.SceneReference.Tests.Runtime
 
             Assert.IsTrue(SceneGuidToAddressMapProvider.SceneGuidToAddressMap.ContainsKey(TestUtils.Addressable2SceneGuid));
             Assert.AreEqual(TestUtils.Addressable2SceneAddress, SceneGuidToAddressMapProvider.SceneGuidToAddressMap[TestUtils.Addressable2SceneGuid]);
+        }
+
+        [Test]
+        public void SceneGuidToAddressMap_LookupIsCaseInsensitive_WithAddressableSupport()
+        {
+            TestUtils.IgnoreIfAddressablesSupportIsDisabled();
+
+            var upperAddr1 = TestUtils.Addressable1SceneGuid.ToUpperInvariant();
+            Assert.IsTrue(SceneGuidToAddressMapProvider.SceneGuidToAddressMap.ContainsKey(upperAddr1));
+            Assert.AreEqual(TestUtils.Addressable1SceneAddress, SceneGuidToAddressMapProvider.SceneGuidToAddressMap[upperAddr1]);
+
+            var upperAddr2 = TestUtils.Addressable2SceneGuid.ToUpperInvariant();
+            Assert.IsTrue(SceneGuidToAddressMapProvider.SceneGuidToAddressMap.ContainsKey(upperAddr2));
+            Assert.AreEqual(TestUtils.Addressable2SceneAddress, SceneGuidToAddressMapProvider.SceneGuidToAddressMap[upperAddr2]);
         }
 
         [Test]
